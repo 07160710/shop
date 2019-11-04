@@ -133,12 +133,34 @@
                     <span>管理员管理</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link <?php print ($_SERVER['REQUEST_URI']=="/backup/")?"curr":"";?>" href="<?php print _ROOT_URL_;?>backup/">
-                    <i class="fas fa-user-secret"></i>
-                    <span>管理员管理</span>
+            <li class="nav-item	<?php print ($_SERVER['REQUEST_URI']=="/backup/" ||
+                $_SERVER['REQUEST_URI']=="/setting/")?"expand":"";?>">
+                <a class="nav-link">
+                    <i class="fa fa-cog"></i>
+                    <span>设置管理</span>
+                    <i class="fa fa-caret-right fr"></i>
                 </a>
+                <ul class="nav-menu">
+                    <li class="nav-item sub">
+                        <a class="nav-link sub <?php print ($_SERVER['REQUEST_URI']=="/backup/")?"curr":"";?>" href="<?php print _ROOT_URL_;?>backup/">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>数据备份</span>
+                        </a>
+                    </li>
+                    <li class="nav-item sub">
+                        <a class="nav-link sub <?php print ($_SERVER['REQUEST_URI']=="/setting/")?"curr":"";?>" href="<?php print _ROOT_URL_;?>setting/">
+                            <i class="fa fa-h-square"></i>
+                            <span>设置</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link --><?php //print ($_SERVER['REQUEST_URI']=="//")?"curr":"";?><!--" href="--><?php //print _ROOT_URL_;?><!--backup/">-->
+<!--                    <i class="fas fa-user-secret"></i>-->
+<!--                    <span>设置</span>-->
+<!--                </a>-->
+<!--            </li>-->
 <!--            <li class="nav-item">-->
 <!--                <a class="nav-link --><?php //print ($_SERVER['REQUEST_URI']=="//")?"curr":"";?><!--" href="--><?php //print _ROOT_URL_;?><!--member/">-->
 <!--                    <i class="fas fa-user-tie"></i>-->
