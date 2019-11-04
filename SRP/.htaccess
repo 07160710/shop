@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /
+
+# Remove .php Extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Convert Route
+RewriteCond %{REQUEST_URI} !^/?(model)/
+RewriteCond %{REQUEST_URI} !^/?(application)/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /model/$1 [L]

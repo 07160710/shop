@@ -1,0 +1,54 @@
+.side-nav *{margin: 0;padding: 0;}
+.side-nav ul {list-style: none;}
+.side-nav .fl {float: left;}
+.side-nav .fr {float: right;}
+
+.side-nav {
+	width: 200px;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    background-color:#282b30;
+	z-index:999;
+}
+.side-nav > ul{padding:20px 0;}
+.nav-item{border-bottom: 1px solid #424242;}
+.nav-item.first {border-top: 1px solid #424242;}
+.nav-item.sub{border:0;}
+.side-nav i{font-size:12px;text-align:center;line-height:30px;}
+.nav-link{
+	display:block;
+    color:#b2bcc5;
+}
+.nav-link{padding:5px 10px;}
+.nav-link i.fr{font-size: 14px;line-height:30px;}
+.nav-link:hover{background-color: #393939;color:#fff;}
+.nav-link.curr{background-color: #0099e0;color:#fff;}
+.nav-link.sub{
+	line-height:30px;
+	padding:0 10px 0 30px;
+}
+
+.nav-link i{
+	width: 20px;
+	font-size:1.2em;
+    text-align: center;
+}
+.nav-link.sub i{
+	width: 20px;
+    text-align: center;
+}
+.fa.fa-credit-card{font-size:.9em;}
+
+.nav-item.expand .nav-link i.fr{
+    transform: rotate(90deg);
+    transition: transform 0.5s;
+}
+.nav-item .nav-menu{
+	overflow:hidden;
+	height:0;
+}
+.nav-item.expand .nav-menu{
+	height:auto;
+}
