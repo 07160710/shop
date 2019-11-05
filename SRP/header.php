@@ -29,10 +29,10 @@
     switch($page_name){
         case "home":
             $page_title = "首页";
-            print "<link href=\"public/assest/css/content.css\" rel=\"stylesheet\" type=\"text/css\" />";
-            print "<script src=\"public/assest/js/ajaxfileupload.js\" type=\"text/javascript\"></script>";
-            print "<script src=\"public/assest/js/Jcrop/js/jquery.Jcrop.min.js\" type=\"text/javascript\"></script>";
-            print "<link href=\"public/assest/js/Jcrop/css/jquery.Jcrop.min.css\" rel=\"stylesheet\" type=\"text/css\" />";
+            print "<link href=\"../../public/assest/css/content.css\" rel=\"stylesheet\" type=\"text/css\" />";
+            print "<script src=\"../../public/assest/js/ajaxfileupload.js\" type=\"text/javascript\"></script>";
+            print "<script src=\"../../public/assest/js/Jcrop/js/jquery.Jcrop.min.js\" type=\"text/javascript\"></script>";
+            print "<link href=\"../../public/assest/js/Jcrop/css/jquery.Jcrop.min.css\" rel=\"stylesheet\" type=\"text/css\" />";
             break;
         case "order":
             $page_title = "订单管理";
@@ -44,10 +44,10 @@
             break;
         case "user":
             $page_title = "管理员管理";
-            print "<link href=\"public/assest/css/content.css\" rel=\"stylesheet\" type=\"text/css\" />";
-            print "<script src=\"public/assest/js/ajaxfileupload.js\" type=\"text/javascript\"></script>";
-            print "<script src=\"public/assest/js/Jcrop/js/jquery.Jcrop.min.js\" type=\"text/javascript\"></script>";
-            print "<link href=\"public/assest/js/Jcrop/css/jquery.Jcrop.min.css\" rel=\"stylesheet\" type=\"text/css\" />";
+            print "<link href=\"../../public/assest/css/content.css\" rel=\"stylesheet\" type=\"text/css\" />";
+            print "<script src=\"../../public/assest/js/ajaxfileupload.js\" type=\"text/javascript\"></script>";
+            print "<script src=\"../../public/assest/js/Jcrop/js/jquery.Jcrop.min.js\" type=\"text/javascript\"></script>";
+            print "<link href=\"../../public/assest/js/Jcrop/css/jquery.Jcrop.min.css\" rel=\"stylesheet\" type=\"text/css\" />";
             break;
         case "backup":
             $page_title = "备份";

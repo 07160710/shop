@@ -13,3 +13,34 @@ function get_path(){
     // exit;
     return $path;
 }
+
+/**
+ * @param $object_id
+ * @param $object
+ * @param $content
+ * @param string $u_id
+ * 获取记录日志
+ */
+function save_log($object_id,$object,$content,$u_id=""){
+    $u_id = ($u_id!="")?$u_id:$_SESSION['u_id'];
+    $sql = "INSERT INTO gmi_log(
+				u_id,
+				object,
+				object_id,
+				content,
+				log_time,
+				ip
+			) VALUES(
+				'$u_id',
+				'$object',
+				'$object_id',
+				'$content',
+				'".time()."',
+				'".$_SERVER['REMOTE_ADDR']."'
+			)";
+    if(!mysql_query($sql)){
+        echo "保存日志出错: ".mysql_error();
+        exit;
+    }
+}
+
