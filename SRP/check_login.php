@@ -12,5 +12,6 @@ else{
             exit;
         }
     }
+
     $_SESSION['session_time'] = time();
 }

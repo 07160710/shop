@@ -133,6 +133,22 @@ require("function.php");
                 default: show_alert(response);
             }
         }
+
+        $('#btn_login').click(function(){
+            cmdEncrypt();
+        });
+
+        $('#btn_reset').click(function(){
+            manage_process('reset');
+        });
+
+        //重新设置密码
+        $('#btn_forgot').click(function(){
+            $('.reset_holder').addClass('show');
+        });
+        $('#btn_back').click(function() {
+            $('.reset_holder').removeClass('show');
+        });
     });
 
     function show_alert(msg,type,link){
@@ -164,14 +180,14 @@ require("function.php");
     function cmdEncrypt() {
         var account = $('#login_account').val(),
             passwd = $('#login_password').val();
-        var rsa = new RSAKey();
-        //openssl生成的modulus,十六进制数据
-        var modulus = '<?php print $modulus;?>';
-        //openssl生成秘钥时的e的值(0x10001)
-        var exponent = '10001';
-        rsa.setPublic(modulus, exponent);
-        account = rsa.encrypt(account);
-        passwd = rsa.encrypt(passwd);
+        // var rsa = new RSAKey();
+        // openssl生成的modulus,十六进制数据
+        // var modulus = '<?php //print $modulus;?>';
+        // openssl生成秘钥时的e的值(0x10001)
+        // var exponent = '10001';
+        // rsa.setPublic(modulus, exponent);
+        // account = rsa.encrypt(account);
+        // passwd = rsa.encrypt(passwd);
         manage_process('login',account,passwd);
     }
 
@@ -183,12 +199,12 @@ require("function.php");
                 var params = 'action=login&account='+account+'&password='+passwd;
                 $.ajax({
                     type: 'post',
-                    url: 'public/manage_login.php',
+                    url: 'manage_login.php',
                     dataType: 'json',
                     data: params,
                     success: function(result){
                         if(result.success==1){
-                            window.location.href = result.referer;
+                            //window.location.href = result.referer;
                         }
                         else{
                             show_alert(result.error);

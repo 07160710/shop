@@ -44,3 +44,14 @@ function save_log($object_id,$object,$content,$u_id=""){
     }
 }
 
+/**
+ * @param $type
+ * @param $skts
+ * 密码加密方式
+ */
+function password_crypt($type){
+    if ($type == ""){
+
+    }
+}
+
