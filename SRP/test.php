@@ -57,9 +57,79 @@ function display_sourcecode($url)
 }
 
 
-$url = "https://www.baidu.com/";
-$source = display_sourcecode($url);
-echo $source;
+//$url = "https://www.baidu.com/";
+//$source = display_sourcecode($url);
+//echo $source;
+
+/**
+ * @return mixed
+ * 获取用户真实的IP
+ */
+function getRealIpAddr()
+{
+    if (!emptyempty($_SERVER['HTTP_CLIENT_IP']))
+    {
+        $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!emptyempty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        //to check ip is pass from proxy
+    {
+        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+        $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+//$ip = getRealIpAddr();
+//echo $ip;
+
+/**
+ * @param $text
+ * @return string
+ * 转换URL:从字符串变成超链接
+ */
+function makeClickableLinks($text)
+{
+    $text = eregi_replace('(((f|ht){1}tp://)[-a-zA-Z0-9@:%_+.~#?&//=]+)',
+        '<a href="\1">\1</a>', $text);
+    $text = eregi_replace('([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_+.~#?&//=]+)',
+        '\1<a href="http://\2">\2</a>', $text);
+    $text = eregi_replace('([_.0-9a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,3})',
+        '<a href="mailto:\1">\1</a>', $text);
+
+    return $text;
+}
+
+$text = "This is my first post on http://blog.koonk.com";
+$text = makeClickableLinks($text);
+echo $text;
+
+/*
+if ( !file_exists('blocked_ips.txt') ) {
+    $deny_ips = array(
+        '127.0.0.1',
+        '192.168.1.1',
+        '83.76.27.9',
+        '192.168.1.163'
+    );
+} else {
+    $deny_ips = file('blocked_ips.txt');
+}
+// read user ip adress:
+$ip = isset($_SERVER['REMOTE_ADDR']) ? trim($_SERVER['REMOTE_ADDR']) : '';
+
+// search current IP in $deny_ips array
+if ( (array_search($ip, $deny_ips))!== FALSE ) {
+    // address is blocked:
+    echo 'Your IP adress ('.$ip.') was blocked!';
+    exit;
+}
+*/
+
 
 
 exit;
+
